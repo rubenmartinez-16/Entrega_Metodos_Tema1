@@ -25,7 +25,8 @@ public class LineSub extends Point{
         super.setY(begin.getY());
     }
     public void setEnd(Point end){
-        super.setX(end.getX());
+        this.end.setX(end.getX());
+        this.end.setY(end.getY());
     }
     public int getBeginX(){
         return super.getX();
@@ -34,10 +35,10 @@ public class LineSub extends Point{
         return super.getY();
     }
     public int getEndX(){
-        return super.getX();
+        return end.getX();
     }
     public int getEndY(){
-        return super.getY();
+        return end.getY();
     }
     public void setBeginX(int beginX){
         super.setX(beginX);
@@ -50,14 +51,14 @@ public class LineSub extends Point{
         super.setY(beginY);
     }
     public void setEndX(int endX){
-        super.setX(endX);
+        this.end.setX(endX);
     }
     public void setEndY(int endY){
-        super.setY(endY);
+        this.end.setY(endY);
     }
     public void setEndXY(int endX, int endY){
-        super.setX(endX);
-        super.setY(endY);
+        this.end.setX(endX);
+        this.end.setY(endY);
     }
     public int getLength(){
         if (((Math.sqrt((super.getX()-getEndX())*(super.getX()-getEndX()) + (super.getY()-getEndY())*(super.getY()-getEndY())))) - (int) ((Math.sqrt((super.getX()-getEndX())*(super.getX()-getEndX()) + (super.getY()-getEndY())*(super.getY()-getEndY())))) >= 0.5) {

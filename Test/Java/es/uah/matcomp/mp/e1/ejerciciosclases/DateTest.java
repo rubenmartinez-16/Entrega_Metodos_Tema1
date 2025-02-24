@@ -51,8 +51,15 @@ class DateTest {
 
     @Test
     void testToString() {
-        assertEquals("01/02/2014", d1.toString());
+        Date date = new Date(3, 4, 2025);
+        assertEquals("03/04/2025", date.toString());
+        Date date2 = new Date(5, 11, 2025);
+        assertEquals("05/11/2025", date2.toString());
+        Date date3 = new Date(12, 7, 2025);
+        assertEquals("12/07/2025", date3.toString());
+        Date date4 = new Date(15, 10, 2025);
+        assertEquals("15/10/2025", date4.toString());
+        }
 
 
     }
-}

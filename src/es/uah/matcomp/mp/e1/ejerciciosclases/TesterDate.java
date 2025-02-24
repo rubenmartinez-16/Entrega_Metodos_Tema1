@@ -15,6 +15,15 @@ public class TesterDate {
         System.out.println("Year: " + d1.getYear());
 // Test setDate()
         d1.setDate(3, 4, 2016);
-        System.out.println(d1); // toString()
+// toString()
+        System.out.println(d1);
+        Date d2 = new Date(9,10,1990);
+        System.out.println(d2);
+        Date d3 = new Date(10,2,2014);
+        System.out.println(d3);
+        Date d4 = new Date(9,12,1990);
+        System.out.println(d4);
+        Date d5 = new Date(10,10,1999);
+        System.out.println(d5);
     }
 }
