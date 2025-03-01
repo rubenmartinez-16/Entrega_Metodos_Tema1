@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
     Account a1 = new Account("A101","Tan Ah Teck", 88);
+    Account a2 = new Account("A103","Ruben");
 
     @org.junit.jupiter.api.Test
     void getID() {
@@ -27,8 +28,10 @@ class AccountTest {
 
     @org.junit.jupiter.api.Test
     void debit() {
-
+        assertEquals(88,a1.debit(89));
         assertEquals(76,a1.debit(12));
+        assertEquals(0,a1.debit(76));
+
     }
     Account c1 = new Account("A102", "Paula", 100);
 

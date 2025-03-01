@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RectangleTest {
     Rectangle r1 = new Rectangle(3.5F, 2.0F);
+    Rectangle r2 = new Rectangle();
 
     @Test
     void getAltura() {

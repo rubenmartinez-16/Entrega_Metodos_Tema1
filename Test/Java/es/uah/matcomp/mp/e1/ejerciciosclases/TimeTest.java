@@ -49,33 +49,42 @@ class TimeTest {
     }
 
     @Test
-    void testToString() {
-        Time time = new Time(0, 0, 0);
-        assertEquals("00:00:00", time.toString());
-        Time time2 = new Time(1, 2, 3);
-        assertEquals("01:02:03", time2.toString());
-        Time time3 = new Time(9, 10, 10);
-        assertEquals("09:10:10", time3.toString());
-        Time time4 = new Time(10, 9, 10);
-        assertEquals("10:09:10", time4.toString());
-        Time time5 = new Time(10, 10, 9);
-        assertEquals("10:10:09", time5.toString());
-        Time time6 = new Time(23, 59, 59);
-        assertEquals("23:59:59", time6.toString());
+    public void testToString() {
+        assertEquals("00:00:00", new Time(0, 0, 0).toString());
+        assertEquals("01:02:03", new Time(1, 2, 3).toString());
+        assertEquals("10:10:10", new Time(10, 10, 10).toString());
+        assertEquals("23:59:59", new Time(23, 59, 59).toString());
+        assertEquals("12:30:45", new Time(12, 30, 45).toString());
+        assertEquals("23:59:59", new Time(0, 0, 0).previousSecond().toString());
+        assertEquals("12:30:29", new Time(12, 30, 30).previousSecond().toString());
+        assertEquals("01:02:02", new Time(1, 2, 3).previousSecond().toString());
+        assertEquals("10:10:09", new Time(10, 10, 10).previousSecond().toString());
+        assertEquals("23:57:59", new Time(23, 58, 0).previousSecond().toString());
+        assertEquals("00:00:58", new Time(0, 0, 59).previousSecond().toString());
+        assertEquals("00:58:59", new Time(0, 59, 0).previousSecond().toString());
+        assertEquals("12:59:59", new Time(13, 0, 0).previousSecond().toString());
+        assertEquals("08:59:08", new Time(8, 59, 9).previousSecond().toString());
+        assertEquals("10:09:08", new Time(10, 9, 9).previousSecond().toString());
+        assertEquals("22:09:59", new Time(22, 9, 59).toString());
+
     }
 
     @Test
-    void nextSecond() {
-        t1.setHour(2);
-        t1.setMinute(59);
-        t1.setSecond(59);
-        t1.nextSecond();
-        assertEquals("03:00:00",t1.toString());
+    public void nextSecond() {
+        assertEquals("00:00:00", new Time(23, 59, 59).nextSecond().toString());
+        assertEquals("12:30:31", new Time(12, 30, 30).nextSecond().toString());
+        assertEquals("01:02:04", new Time(1, 2, 3).nextSecond().toString());
+        assertEquals("10:10:11", new Time(10, 10, 10).nextSecond().toString());
+        assertEquals("23:59:00", new Time(23, 58, 59).nextSecond().toString());
+        assertEquals("23:00:00", new Time(22, 59, 59).nextSecond().toString());
     }
 
     @Test
-    void previousSecond() {
-        t1.setTime(0,0,0);
-        assertEquals("23:59:59",t1.previousSecond().toString());
+    public void previousSecond() {
+        assertEquals("23:59:59", new Time(0, 0, 0).previousSecond().toString());
+        assertEquals("12:30:29", new Time(12, 30, 30).previousSecond().toString());
+        assertEquals("01:02:02", new Time(1, 2, 3).previousSecond().toString());
+        assertEquals("10:10:09", new Time(10, 10, 10).previousSecond().toString());
+        assertEquals("23:57:59", new Time(23, 58,0).previousSecond().toString());
     }
 }
